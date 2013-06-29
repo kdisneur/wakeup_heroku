@@ -1,0 +1,28 @@
+div class="row"
+  div class="large-12 colomns"
+    = button_to('Sync Heroku applications', syncing_path, class: 'small right button primary-dark', method: :post)
+
+div class="row"
+  div class="large-12 colomns"
+    table
+      thead
+        tr
+          th Name
+          th Activated
+          th Last Ping
+          th status
+      tbdody
+        - applications.each do |application|
+          tr
+            td= application.name
+            td= link_to((application.activated ? 'on' : 'off'), heroku_application_toggle_activation_path(application.heroku_id), method: 'post')
+            td
+              - if application.last_ping
+                = application.last_ping
+              - else
+                | Not yet pinged
+            td
+              - if application.status
+                = application.status
+              - else
+                | No status

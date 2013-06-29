@@ -1,0 +1,13 @@
+nav class="top-bar"
+  ul class="title-area"
+    li class="name"
+      h1
+        = link_to('Wake up Heroku', root_path)
+    li class="toggle-topbar menu-icon"
+      = link_to('Menu', '#')
+  ul class="right"
+    - if current_user
+      li class="has-form"
+        li = link_to('Sign out', session_path(current_user), class: 'button', method: :delete)
+    - else
+      = link_to('Sign in', new_session_path, class: 'button')

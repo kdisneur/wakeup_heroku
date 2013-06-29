@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title Wakeup Heroku
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+body
+  = render 'general/menu'
+  div class="row"
+    div class="large-12 colomns"
+      = yield
+  = javascript_include_tag 'application', 'data-turbolinks-track' => true
