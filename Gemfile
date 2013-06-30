@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
 
+gem 'asset_sync'
 gem 'bson_ext'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'compass-rails'
