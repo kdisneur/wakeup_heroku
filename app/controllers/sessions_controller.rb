@@ -26,13 +26,13 @@ private
     user           = User.find_or_create_by(heroku_id: heroku_user['id'])
     user.api_token = api_key
     user.email     = heroku_user['email']
-    create_heroku_applications(heroku_api) unless user.applications.present?
+    create_heroku_applications(user, heroku_api) unless user.applications.present?
     user.save
 
     user
   end
 
-  def create_heroku_applications(heroku_api)
+  def create_heroku_applications(user, heroku_api)
     applications = heroku_api.get_apps.body
     applications.each do |application|
       user.applications << Application.new(heroku_id: application['id'], name: application['name'], url: application['web_url'])
