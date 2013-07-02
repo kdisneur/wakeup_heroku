@@ -5,7 +5,7 @@ namespace :ping do
       user.applications.where(activated: true).each do |application|
         response              = Curl.get(application.url)
         application.last_ping = Time.now
-        application.status    = (response.response_code.to_s =~ /[23][0-9]{2}/) ? 'up' : 'down'
+        application.status    = (response.response_code.to_s =~ /([23][0-9]{2})|401/) ? 'up' : 'down'
 
         application.save
       end
