@@ -18,7 +18,7 @@ div class="row"
             td= link_to((application.activated ? 'on' : 'off'), heroku_application_toggle_activation_path(application.heroku_id), method: 'post')
             td
               - if application.last_ping
-                = application.last_ping
+                = l(application.last_ping, format: :long)
               - else
                 | Not yet pinged
             td
