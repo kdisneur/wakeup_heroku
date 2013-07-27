@@ -1,0 +1,7 @@
+production:
+  mixpanel:
+    key: <%= ENV['MIXPANEL_TOKEN'] %>
+development:
+  mixpanel:
+    key: <%= ENV['MIXPANEL_TOKEN'] %>
+test:
