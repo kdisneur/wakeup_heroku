@@ -109,6 +109,7 @@ GEM
     net-scp (1.1.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.6.7)
+    newrelic_rpm (3.6.6.147)
     nokogiri (1.5.10)
     oauth2 (0.8.1)
       faraday (~> 0.8)
@@ -200,6 +201,7 @@ DEPENDENCIES
   heroku-api
   jquery-rails
   mongoid!
+  newrelic_rpm
   omniauth-heroku
   rails (= 4.0.0)
   sass-rails (~> 4.0.0)
