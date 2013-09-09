@@ -5,7 +5,6 @@ if defined?(AssetSync)
     config.aws_secret_access_key = ENV['AWS_SECRET_ACCESS_KEY']
     config.fog_directory         = ENV['FOG_DIRECTORY']
     config.fog_region            = 'eu-west-1'
-    config.fail_silently         = true
     config.gzip_compression      = true
   end
 end

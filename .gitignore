@@ -16,4 +16,5 @@
 /tmp
 *.DS_Store
 config/application.yml
+.env*
 public/assets/

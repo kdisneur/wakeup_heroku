@@ -1,0 +1,13 @@
+<%= rails_log_path %> {
+  daily
+  missingok
+  rotate <%= logrotate_days %>
+  compress
+  delaycompress
+  notifempty
+  copytruncate
+  sharedscripts
+  postrotate
+    kill -s USR1 `cat <%= unicorn_pid %>`
+  endscript
+}
