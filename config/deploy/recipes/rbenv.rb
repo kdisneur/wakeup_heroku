@@ -1,5 +1,5 @@
-set_default :ruby_base_version, '2.0.0-p247'
-set_default :ruby_patch_version, '2.0.0-p247'
+set_default :ruby_base_version,  '2.0.0'
+set_default :ruby_patch_version, 'p247'
 set_default(:ruby_version) { "#{ruby_base_version}-#{ruby_patch_version}" }
 set_default :server_os,    'ubuntu-12-04'
 

@@ -29,3 +29,7 @@ namespace :deploy do
     end
   end
 end
+
+task :migrate do
+  logger.info "We don't need to run migrations since we're using MongoDB"
+end

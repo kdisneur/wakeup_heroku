@@ -79,7 +79,7 @@ after_fork do |server, worker|
   # correctly implements pread()/pwrite() system calls)
 
   # Reconnect memcached
-  Rails.cache.reset
+  # Rails.cache.reset
 end
 
 before_exec do |server|

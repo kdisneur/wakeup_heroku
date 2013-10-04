@@ -11,17 +11,15 @@ load 'deploy/assets'
 
 set :application,   'wakeup_heroku'
 set :stages,        %w(production)
-set_default :user,          'app'
+set_default :user,  'app'
 
 set :scm,          :git
 set :repository,   "git@github.com:kdisneur/#{application}.git"
 set :use_sudo,     false
 
-set :ruby_version, '2.0.0-p247'
-set :server_os,    'ubuntu-12-04'
-
 ssh_options[:forward_agent] = true
-ssh_options[:keys] = [File.join(ENV['HOME'], '.ssh', 'id_github')]
+ssh_options[:keys]          = [File.join(ENV['HOME'], '.ssh', 'id_github')]
+default_run_options[:pty]   = true
 
 set :keep_releases, 2
 after 'deploy:restart', 'deploy:cleanup'

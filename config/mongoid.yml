@@ -10,8 +10,6 @@ production:
   sessions:
     default:
       << : *default_session
-      username: <%= ENV['MONGODB_USER'] %>
-      password: <%= ENV['MONGODB_PASSWORD'] %>
 test:
   sessions:
     default:

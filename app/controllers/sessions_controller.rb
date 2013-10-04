@@ -45,7 +45,7 @@ private
       application = Application.new(heroku_id: application['id'], name: application['name'], url: application['web_url'])
       analytical.event('Add application', id: user.heroku_id, application_id: application.heroku_id, application_name: application.name)
 
-      user.applications << appliaction
+      user.applications << application
     end
   end
 end

@@ -1,3 +1,9 @@
+set_default :certificate_year,  '2013'
+set_default(:certificate_path) { File.join('/etc', 'certs', host_name, certificate_year) }
+set_default(:certificate_crt_path) { File.join(certificate_path, "#{host_name}.crt") }
+set_default(:certificate_key_path) { File.join(certificate_path, "#{host_name}.key") }
+
+
 namespace :nginx do
   desc 'Install latest stable release of nginx'
   task :install, roles: :web do

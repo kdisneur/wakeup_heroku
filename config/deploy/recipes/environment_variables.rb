@@ -8,7 +8,7 @@ namespace :environment_variables do
       transfer :up, file, File.join(shared_path, file), via: :scp
     end
   end
-  after 'deploy:cold', 'environment_variables:copy'
+  after 'deploy:finalize_update', 'environment_variables:copy'
 
   task :symlink do
     environment_variables_paths.each do |file|
@@ -18,5 +18,4 @@ namespace :environment_variables do
     end
   end
   after 'environment_variables:copy', 'environment_variables:symlink'
-  after 'deploy:finalize_update',     'environment_variables:symlink'
 end
