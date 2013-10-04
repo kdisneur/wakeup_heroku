@@ -1,6 +1,11 @@
 require 'bundler/capistrano'
 require 'capistrano/ext/multistage'
 
+set :whenever_environment, defer { stage }
+set :whenever_identifier,  defer { "#{application}_#{stage}" }
+set :whenever_command, 'bundle exec whenever'
+require 'whenever/capistrano'
+
 load 'config/deploy/recipes/base'
 load 'config/deploy/recipes/environment_variables'
 load 'config/deploy/recipes/logrotate'
