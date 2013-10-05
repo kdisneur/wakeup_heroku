@@ -15,7 +15,18 @@ div class="row"
         - applications.each do |application|
           tr
             td= application.name
-            td= link_to((application.activated ? 'on' : 'off'), heroku_application_toggle_activation_path(application.heroku_id), method: 'post')
+            td
+              = link_to(heroku_application_toggle_activation_path(application.heroku_id), method: 'post') do
+                div class="switch small round"
+                  = radio_button_tag("switch-#{application.id}", '', !application.activated, id: "activate_#{application.id}")
+                  label for="deactivate_#{application.id}"
+                    |Off
+
+                  = radio_button_tag("switch-#{application.id}", '', application.activated, id: "activate_#{application.id}")
+                  label for="activate_#{application.id}"
+                    |On
+
+                  span
             td
               - if application.last_ping
                 = l(application.last_ping, format: :long)
