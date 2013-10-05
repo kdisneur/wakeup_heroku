@@ -33,7 +33,4 @@ div class="row"
               - else
                 | Not yet pinged
             td
-              - if application.status
-                = application.status
-              - else
-                | No status
+              span class="status-#{application.status.presence || 'no-status'}"
